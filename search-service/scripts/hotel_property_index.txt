@@ -1,0 +1,103 @@
+PUT /hotel_properties
+{
+    "settings" : {
+        "number_of_shards" : 1
+    },
+    "mappings" : {
+        "properties" : {
+            "property_id" : { "type" : "text" },
+            "name" : { "type" : "text" },
+            "image" : { "type" : "text" },
+            "tagline" : { "type" : "text" }
+        }
+    }
+}
+
+PUT /hotel_propertie_bookings
+{
+    "settings" : {
+        "number_of_shards" : 1
+    },
+    "mappings" : {
+        "properties" : {
+            "property_id" : { "type" : "text" },
+            "check_in_date" : { "type" : "date" },
+            "check_out_date" : { "type" : "date" }
+        }
+    }
+}
+
+
+######## The Parent child relation
+
+PUT hotel_properties_relation
+{
+  "mappings": {
+    "properties": {
+      "property_booking_field": { 
+        "type": "join",
+        "relations": {
+          "property": "booking" 
+        }
+      }
+    }
+  }
+}
+
+
+PUT hotel_properties_relation/_doc/5e1e8d91044d76375eed4913?refresh
+{
+"property_id": "5e1e8d91044d76375eed4913",
+"name" : "Radision Blue",
+"image" : "https://media.gettyimages.com/photos/interior-view-of-gorgeous-hotel-picture-id838103468?s=612x612",
+"tagline":"A Beautiful 5 star hotel new beach",
+"property_booking_field": {
+    "name": "property" 
+  }
+}
+
+PUT hotel_properties_relation/_doc/5e265d83dd456168d531666f?routing=1&refresh 
+{
+  "property_id" : "5e1e8d91044d76375eed4913",
+"check_in_date" : "2020-01-25T05:30:00.000+05:30",
+"check_out_date" : "2020-01-27T05:30:00.000+05:30",
+  "property_booking_field": {
+    "name": "booking", 
+    "parent": "5e1e8d91044d76375eed4913" 
+  }
+}
+
+
+PUT hotel_properties_relation/_doc/5e253d8ab989107b6251f10b?routing=1&refresh 
+{
+"property_id" : "5e1e8d91044d76375eed4913",
+"check_in_date" : "2020-01-20T05:30:00.000+05:30",
+"check_out_date" : "2020-01-22T05:30:00.000+05:30"
+  "property_booking_field": {
+    "name": "booking", 
+    "parent": "5e1e8d91044d76375eed4913" 
+  }
+}
+
+PUT hotel_properties_relation/_doc/5e265d83dd456168d531666f?routing=1&refresh 
+{
+  "property_id" : "5e1e8d91044d76375eed4913",
+"check_in_date" : "2020-01-25T05:30:00.000+05:30",
+"check_out_date" : "2020-01-27T05:30:00.000+05:30",
+  "property_booking_field": {
+    "name": "booking", 
+    "parent": "5e1e8d91044d76375eed4913" 
+  }
+}
+
+
+PUT hotel_properties_relation/_doc/5e2d15785a1ca236a71ce1d6?routing=1&refresh 
+{
+  "property_id" : "5e22fe8c2a8cb9031ce4860d",
+"check_in_date" : "2020-01-25T05:30:00.000+05:30",
+"check_out_date" : "2020-01-27T05:30:00.000+05:30",
+  "property_booking_field": {
+    "name": "booking", 
+    "parent": "5e22fe8c2a8cb9031ce4860d" 
+  }
+}

@@ -1,0 +1,98 @@
+version: "3"
+services:
+  hotel-booking-service:
+    container_name: hotel-booking-service
+    # image: hotel-booking-service
+    restart: always
+    build: "./booking-service"
+    ports:
+      - "3021:3021"
+    # environment:
+    #   - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE = http://eureka-service-registry:8761/eureka
+    links:
+      - mongo
+      - kafka
+    #   - eureka-service-registry
+
+  hotel-search-service:
+    container_name: hotel-search-service
+    # image: hotel-search-service
+    restart: always
+    build: "./search-service"
+    environment:
+      - "ELASTIC_SEARCH_URI=http://elasticsearch:9200"
+    ports:
+      - "3022:3022"
+    # environment:
+    #   - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE = http://eureka-service-registry:8761/eureka
+    networks:
+      - elastic
+      - default
+    links:
+      - elasticsearch
+      - kafka
+    #   - eureka-service-registry
+
+  mongo:
+    container_name: mongo_hotel_booking
+    image: mongo
+    # environment:
+    volumes:
+      - ~/dbdata:/var/lib/mongo/data
+    ports:
+      - "27017:27017"
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181"
+    hostname: zookeeper
+
+  kafka:
+    image: wurstmeister/kafka
+    command: [start-kafka.sh]
+    ports:
+      - "9092:9092"
+    hostname: kafka
+    environment:
+      KAFKA_CREATE_TOPICS: "new-hotel-booking:1:1" # topic:partition:replicas
+      KAFKA_ADVERTISED_HOST_NAME: kafka # docker-machine ip
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - "zookeeper"
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch:7.5.1
+    # command: ['chown', '-R', '1000:1000', '/usr/share/elasticsearch/data']
+    volumes:
+      - ~/esdata:/usr/share/elasticsearch/data
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+    networks:
+      - elastic
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.5.2
+    container_name: kibana
+    # volumes:
+    #   - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+    environment:
+      - "ELASTICSEARCH_URL=http://elasticsearch:9200"
+    ports:
+      - "5601:5601"
+    networks:
+      - elastic
+    links:
+      - elasticsearch
+
+networks:
+  elastic:
+    driver: bridge

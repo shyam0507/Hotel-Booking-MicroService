@@ -1,0 +1,62 @@
+PUT hotel_properties_relation/_doc/5e1e8d91044d76375eed4913?refresh
+{
+"property_id": "5e1e8d91044d76375eed4913",
+"name" : "Radision Blue",
+"image" : "https://media.gettyimages.com/photos/interior-view-of-gorgeous-hotel-picture-id838103468?s=612x612",
+"tagline":"A Beautiful 5 star hotel new beach",
+"property_booking_field": {
+    "name": "property" 
+  }
+}
+
+
+PUT hotel_properties/_doc/5e22fe8c2a8cb9031ce4860b?refresh
+{
+"property_id": "5e22fe8c2a8cb9031ce4860b",
+"name" : "Vivanta Goa",
+"image" : "https://q-cf.bstatic.com/images/hotel/max1024x768/600/60029006.jpg",
+"tagline":"celebrity treatment with world-class service at Vivanta Goa, Panaji",
+"property_booking_field": {
+    "name": "property" 
+  }
+}
+
+
+PUT hotel_properties/_doc/5e22fe8c2a8cb9031ce4860c?refresh
+{
+"property_id": "5e22fe8c2a8cb9031ce4860c",
+"name" : "Goa Marriott Resort & Spa",
+"image" : "https://q-cf.bstatic.com/images/hotel/max1024x768/884/88405695.jpg",
+"tagline":"Experience world-class service at Goa Marriott Resort & Spa",
+"property_booking_field": {
+    "name": "property" 
+  }
+}
+
+
+PUT hotel_properties_relation/_doc/5e22fe8c2a8cb9031ce4860d?refresh
+{
+"property_id": "5e22fe8c2a8cb9031ce4860d",
+"name" : "Novotel Goa Resort & Spa",
+"image" : "https://r-cf.bstatic.com/images/hotel/max1024x768/158/158774847.jpg",
+"tagline":"Experience world-class service at Novotel Goa Resort & Spa"
+"property_booking_field": {
+    "name": "property" 
+  }
+}
+
+
+######## Bookings
+PUT hotel_propertie_bookings/_doc/5e265d83dd456168d531666f
+{
+"property_id" : "5e1e8d91044d76375eed4913",
+"check_in_date" : "2020-01-25T05:30:00.000+05:30",
+"check_out_date" : "2020-01-27T05:30:00.000+05:30"
+}
+
+PUT hotel_propertie_bookings/_doc/5e253d8ab989107b6251f10b
+{
+"property_id" : "5e1e8d91044d76375eed4913",
+"check_in_date" : "2020-01-20T05:30:00.000+05:30",
+"check_out_date" : "2020-01-22T05:30:00.000+05:30"
+}

@@ -1,0 +1,12 @@
+{
+    "test": {
+        "PORT": 3022,
+        "ELASTIC_SEARCH_URI": "http://elasticsearch:9200",
+        "KAFKA_URI": "kafka:9092"
+    },
+    "development": {
+        "PORT": 3022,
+        "ELASTIC_SEARCH_URI": "http://elasticsearch:9200",
+        "KAFKA_URI": "kafka:9092"
+    }
+}

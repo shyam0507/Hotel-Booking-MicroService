@@ -1,0 +1,19 @@
+{
+  "name": "cinema-catalog",
+  "version": "1.0.0",
+  "description": "Service to give information about the cinemas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Shyamnath Vishwakarma",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "kafkajs": "^1.11.0",
+    "mongoose": "^5.8.1"
+  }
+}
