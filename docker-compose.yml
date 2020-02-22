@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   hotel-booking-service:
     container_name: hotel-booking-service
     # image: hotel-booking-service
@@ -33,6 +34,34 @@ services:
       - kafka
     #   - eureka-service-registry
 
+  hotel-user-service:
+    container_name: hotel-user-service
+    # image: hotel-user-service
+    restart: always
+    build: "./user-service"
+    ports:
+      - "3023:3023"
+    # environment:
+    #   - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE = http://eureka-service-registry:8761/eureka
+    links:
+      - mongo
+      - kafka
+    #   - eureka-service-registry
+
+  hotel-notification-service:
+    container_name: hotel-notification-service
+    # image: hotel-notification-service
+    restart: always
+    build: "./notification-service"
+    ports:
+      - "3024:3024"
+    # environment:
+    #   - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE = http://eureka-service-registry:8761/eureka
+    links:
+      - mongo
+      - kafka
+    #   - eureka-service-registry
+
   mongo:
     container_name: mongo_hotel_booking
     image: mongo
@@ -59,6 +88,7 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: kafka # docker-machine ip
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_PORT: 9092
+      # KAFKA_MESSAGE_MAX_BYTES: 2195725856
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:

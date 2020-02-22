@@ -26,7 +26,7 @@ exports.startConsumer = async () => {
 
         const consumer = kafka.consumer({ groupId: 'new-hotel-booking-group-1' })
         await consumer.connect()
-        await consumer.subscribe({ topic: 'new-hotel-booking', fromBeginning: true })
+        await consumer.subscribe({ topic: 'new-hotel-booking', fromBeginning: false })
 
         await consumer.run({
             eachMessage: async ({ topic, partition, message }) => {

@@ -1,0 +1,52 @@
+<div>
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="name">Check In Date</label>
+                        <input class="form-control" readonly id="check-in" [(ngModel)]="checkInDate"
+                            placeholder="check in" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="name">Check Out Date</label>
+                        <input class="form-control" readonly id="check-out" [(ngModel)]="checkOutDate"
+                            placeholder="checkout" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <figure class="card card-product">
+                        <figcaption class="info-wrap">
+                            <h4 class="title">{{property.name}}</h4>
+                            <div class="label-rating">{{property.tagline}}</div>
+                        </figcaption>
+
+                        <div class="img-wrap"><img width="500px" [src]="property.image"></div>
+
+                    </figure>
+                </div> <!-- col // -->
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row">
+                <div class="bottom-wrap">
+
+                    <div class="price-wrap h5">
+                        <span class="price-new">Total : $1280</span>
+                    </div> <!-- price-wrap.// -->
+
+                    <input class="form-control" id="email" [(ngModel)]="email" placeholder="enter email id" type="text">
+                    <br>
+                    <button (click)="bookProperty(property.property_id)" class="btn btn-sm btn-primary float-right">Book
+                        Now</button>
+
+                </div> <!-- bottom-wrap.// -->
+            </div>
+        </div>
+
+    </div>
+</div>

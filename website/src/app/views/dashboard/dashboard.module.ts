@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-
+import { ModalModule } from "ngx-bootstrap";
 @NgModule({
   imports: [
     FormsModule,
@@ -16,7 +16,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     DashboardRoutingModule,
     ChartsModule,
     BsDropdownModule,
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    ModalModule.forRoot()
   ],
   declarations: [DashboardComponent]
 })

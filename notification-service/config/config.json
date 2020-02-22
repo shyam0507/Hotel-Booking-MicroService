@@ -1,19 +1,19 @@
 {
     "test": {
-        "PORT": 3021,
-        "MONGODB_URI": "mongodb://localhost:27017/booking_microservice_booking",
+        "PORT": 3024,
+        "MONGODB_URI": "mongodb://localhost:27017/booking_microservice_notification",
         "KAFKA_URI": "localhost:9092",
         "USER_MICROSERVICE_URI": "http://localhost:3023/users"
     },
     "development": {
-        "PORT": 3021,
-        "MONGODB_URI": "mongodb://localhost:27017/booking_microservice_booking",
+        "PORT": 3024,
+        "MONGODB_URI": "mongodb://localhost:27017/booking_microservice_notification",
         "KAFKA_URI": "localhost:9092",
         "USER_MICROSERVICE_URI": "http://localhost:3023/users"
     },
     "docker-development": {
-        "PORT": 3021,
-        "MONGODB_URI": "mongodb://mongo:27017/booking_microservice_booking",
+        "PORT": 3024,
+        "MONGODB_URI": "mongodb://mongo:27017/booking_microservice_notification",
         "KAFKA_URI": "kafka:9092",
         "USER_MICROSERVICE_URI": "http://hotel-user-service:3023/users"
     }

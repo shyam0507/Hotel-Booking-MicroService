@@ -40,6 +40,15 @@ export const navItems: NavData[] = [
     // }
   },
   {
+    name: 'Booking Review',
+    url: '/booking-review',
+    icon: 'icon-speedometer',
+    // badge: {
+    //   variant: 'info',
+    //   text: 'NEW'
+    // }
+  },
+  {
     name: 'Manage Products',
     url: '/manage-product',
     icon: 'icon-speedometer',

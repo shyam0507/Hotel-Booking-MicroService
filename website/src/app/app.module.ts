@@ -22,6 +22,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { ModalModule } from "ngx-bootstrap";
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -43,6 +44,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { BookingReviewComponent } from './booking-review/booking-review.component';
 
 @NgModule({
   imports: [
@@ -60,7 +62,8 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -69,7 +72,8 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
     P500Component,
     LoginComponent,
     RegisterComponent,
-    ManageProductComponent
+    ManageProductComponent,
+    BookingReviewComponent
   ],
   providers: [{
     provide: LocationStrategy,

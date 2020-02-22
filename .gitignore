@@ -1,5 +1,7 @@
 /booking-service/node_modules
 /search-service/node_modules
+/user-service/node_modules
+/notification-service/node_modules
 /esdata
 /testHelpers
 /zk-single-kafka-single

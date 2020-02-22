@@ -1,0 +1,17 @@
+{
+    "test": {
+        "PORT": 3023,
+        "MONGODB_URI": "mongodb://localhost:27017/booking_microservice_user",
+        "KAFKA_URI": "localhost:9092"
+    },
+    "development": {
+        "PORT": 3023,
+        "MONGODB_URI": "mongodb://localhost:27017/booking_microservice_user",
+        "KAFKA_URI": "localhost:9092"
+    },
+    "docker-development": {
+        "PORT": 3023,
+        "MONGODB_URI": "mongodb://mongo:27017/booking_microservice_user",
+        "KAFKA_URI": "kafka:9092"
+    }
+}

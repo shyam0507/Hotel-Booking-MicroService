@@ -9,6 +9,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { BookingReviewComponent } from './booking-review/booking-review.component';
 
 export const routes: Routes = [
   {
@@ -56,6 +57,13 @@ export const routes: Routes = [
         component: ManageProductComponent,
         data: {
           title: 'Manage Product Page'
+        }
+      },
+      {
+        path: 'booking-review',
+        component: BookingReviewComponent,
+        data: {
+          title: 'Booking Review'
         }
       },
       // {

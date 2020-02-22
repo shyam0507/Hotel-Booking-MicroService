@@ -38,7 +38,9 @@
         <!-- rating-wrap.// -->
       </figcaption>
       <div class="bottom-wrap">
-        <button (click)="bookProperty(productRow[0].property_id)" class="btn btn-sm btn-primary float-right">Book
+        <button (click)="bookProperty(productRow[0].property_id,i,0)" class="btn btn-sm btn-primary float-right">Book
+          Now</button>
+        <button (click)="myModal.show()" class=" btn btn-sm btn-primary float-right">Book
           Now</button>
         <div class="price-wrap h5">
           <span class="price-new">$1280</span> <del class="price-old">$1980</del>
@@ -60,7 +62,7 @@
         </div> <!-- rating-wrap.// -->
       </figcaption>
       <div class="bottom-wrap">
-        <button (click)="bookProperty(productRow[1].property_id)" class="btn btn-sm btn-primary float-right">Book
+        <button (click)="bookProperty(productRow[1].property_id,i,1)" class="btn btn-sm btn-primary float-right">Book
           Now</button>
         <div class="price-wrap h5">
           <span class="price-new">$1280</span> <del class="price-old">$1980</del>
@@ -82,7 +84,7 @@
         </div> <!-- rating-wrap.// -->
       </figcaption>
       <div class="bottom-wrap">
-        <button (click)="bookProperty(productRow[2].property_id)" class="btn btn-sm btn-primary float-right">Book
+        <button (click)="bookProperty(productRow[2].property_id,i,2)" class="btn btn-sm btn-primary float-right">Book
           Now</button>
         <div class="price-wrap h5">
           <span class="price-new">$1280</span> <del class="price-old">$1980</del>
@@ -92,4 +94,25 @@
   </div> <!-- col // -->
 
 </div>
+
+<div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Enter your details</h4>
+        <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" value="" [(ngModel)]="userEmail" placeholder="enter your email Id">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Close</button>
+        <button type="button" (click)="startBooking()" class="btn btn-primary">Book Me</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!--/.row-->
